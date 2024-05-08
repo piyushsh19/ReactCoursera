@@ -1,16 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-import Nav from './Nav';
-import Intro1 from './Intro1';
-import Footer from './Footer';
-import Intro2 from './Intro2';
-import Heading from './Heading';
+import Header from "./components/Header";
+import Bag from "./components/Bags";
+import Apples from "./components/Apple";
+import Pears from "./components/Pears";
 
 function App() {
-  return (
-  //  <><Nav /><Intro1 /><Intro2 /><Footer/></>
-  <Heading />
-  );
+  return (
+//     <div className="App">
+//       <Header firstName="Bob" />
+//       <Header firstName="Any name other than Bob" />
+//     </div>
+
+    <Bag>
+        <Apples color="yellow" number="5" />
+        <Pears friend="Peter" />
+    </Bag>
+  );
 }
 
 export default App;

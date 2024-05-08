@@ -118,3 +118,13 @@ The third argument (...children)
 This is the inner content that will go inside the wrapping element. It's what makes it possible to nest elements inside other elements, mimicking the way that HTML works.
 
 In this reading you’ve learned how to use a transpiler to break JSX code to plain JavaScript, making its purpose more understandable.
+
+You can even have multiple levels of nested JSX elements, or a single JSX element having multiple children, such as, for example:
+
+<Trunk>
+    <Bag>
+        <Apples color="yellow" number="5" />
+        <Pears friend="Peter" />
+    </Bag>
+</Trunk>
+, Apples is a prop of the Bag component. To explain further, the Bag component can wrap the Apples component, or any other component, because I used the {props.children} syntax in the Bag component function declaration. In other words, just like in the real world, when you take a bag to a grocery store, you can “wrap” a wide variety of groceries inside the bag, you can do the same thing in React: wrap a wide variety of components inside the Bag component, using the children prop to achieve this.
