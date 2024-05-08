@@ -128,3 +128,37 @@ You can even have multiple levels of nested JSX elements, or a single JSX elemen
     </Bag>
 </Trunk>
 , Apples is a prop of the Bag component. To explain further, the Bag component can wrap the Apples component, or any other component, because I used the {props.children} syntax in the Bag component function declaration. In other words, just like in the real world, when you take a bag to a grocery store, you can “wrap” a wide variety of groceries inside the bag, you can do the same thing in React: wrap a wide variety of components inside the Bag component, using the children prop to achieve this.
+
+JSX Styling
+
+There are various ways to style JSX elements.
+
+Probably the simplest way to do this is using the link HTML element in the head of the index.html file in which your React app will mount.
+
+The href attribute loads some CSS styles, probably with some CSS classes, and then, inside the function component's declarations, you can access those CSS classes using the className attribute.
+
+Another way to add CSS styles to components is using inline styles.
+
+The syntax of inline styles in JSX is a bit custom.
+
+function Promo(props) {
+    return (
+        <div className="promo-section">
+            <div>
+                <h1 style={{color:"tomato", fontSize:"40px", fontWeight:"bold"}}>
+                    {props.heading}
+                </h1>
+            </div>
+            <div>
+                <h2>{props.promoSubHeading}</h2>
+            </div>
+        </div>
+    );
+}
+
+export default Promo;
+
+As explained previously, this means that whatever code you add inside these opening and closing curly braces is to be parsed as regular JavaScript. Now let’s add a style object literal inside of these curly braces:
+
+<h2>
+, since it's just JavaScript, those CSS properties that would be hyphenated in plain CSS, such as, for example, font-size:40px, become camelCased, and the value is a string, making it look like this: fontSize:"40px".<h2/>
