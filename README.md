@@ -162,3 +162,86 @@ As explained previously, this means that whatever code you add inside these open
 
 <h2>
 , since it's just JavaScript, those CSS properties that would be hyphenated in plain CSS, such as, for example, font-size:40px, become camelCased, and the value is a string, making it look like this: fontSize:"40px".<h2/>
+
+JSX syntax and the arrow function
+Components as Function Expressions
+Up to this point, you’ve likely only observed ES5 function declarations used to define components in React. However, this is not the only way to do it.
+
+Function Expressions
+
+Let’s start with a function declaration used as a component in React:
+function Nav(props) {
+    return (
+        <ul>
+            <li>{props.first}</li>
+        </ul>
+    )
+}
+
+This component's code returns a list item containing the value of the ‘first’ prop.
+
+Now, let's change this function declaration to a function expression:
+
+1234567
+const Nav = function(props) {
+    return (
+        <ul>
+            <li>{props.first}</li>
+        </ul>
+    )
+}
+The component is, for the most part, the same. The only thing that's changed is that you’re now using an anonymous (nameless) function, and assigning this anonymous function declaration to a variable declared using the const keyword, and the name Nav. The rest of the code is identical.
+
+const Nav = function(props) {
+    return (
+        <ul>
+            <li>{props.first}</li>
+        </ul>
+    )
+}
+
+Changing a component from a function declaration to a function expression doesn't change its behavior, or how you write the code to render the Nav component. It's still the same:
+
+<Nav first="Home" />
+
+Components as Arrow Functions
+Arrow functions are a core feature of the ES6 version of JavaScript.
+
+One of the main benefits of using arrow functions is its shorter syntax.
+
+Consider the Nav function expression written as an arrow function:
+
+const Nav = (props) => {
+    return (
+        <ul>
+            <li>{props.first}</li>
+        </ul>
+    )
+}
+
+So, the way to think about this is the following:
+
+The arrow itself can be thought of as the replacement for the function keyword. 
+
+The parameters that this arrow function accepts are listed before the arrow itself. 
+
+To reiterate, take the smallest possible anonymous ES5 function:
+const example = function() {}
+And then observe how this is written as an arrow function:
+
+
+const example = () => {}
+
+<h1>Another important rule regarding arrow functions is that using the parentheses is optional if there's a single parameter that a function accepts.
+
+
+In other words, another correct way to write the previous Nav arrow function component would be to drop the parentheses around ‘props’:
+
+const Nav = props => {
+    return (
+        <ul>
+            <li>{props.first}</li>
+        </ul>
+    )
+}
+</h1>
