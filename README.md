@@ -245,3 +245,81 @@ const Nav = props => {
     )
 }
 </h1>
+
+
+Ternary operators and functions in JSX
+
+A ternary operator in JavaScript uses two distict characters: the first oneis the question mark, that is, the ? character. To the left of the ? character, you put a condition that you'd like to check for. Just like I did in the above if...else statement, the condition
+
+name == Bob ? "Yes, it is Bob" : "I don't know this person";
+
+Using ternary expressions in JSX
+Let’s examine an example of a component which uses a ternary expression to randomly change the text that is displayed.
+
+function Example() {
+    return (
+        <div className="heading">
+            <h1>{Math.random() >= 0.5 ? "Over 0.5" : "Under 0.5"}</h1>
+        </div>
+    );
+};
+
+
+
+Using function calls in JSX
+Another way to work with an expression in JSX is to invoke a function. Function invocation is an expression because every expression returns a value, and function invocation will always return a value, even when that return value is undefined.
+
+Like the previous example, you can use function invocation inside JSX to return a random number:
+
+234567891
+function Example2() {
+    return (
+        <div className="heading">
+            <h1>Here's a random number from 0 to 10: 
+                { Math.floor(Math.random() * 10) + 1 }
+            </h1>
+        </div>
+    );
+};
+In the Example2 component, built-in Math.floor() and Math.random() methods are being used, as well as some number values and arithmetic operators, to display a random number between 0 and 10.
+
+You can also extract this functionality into a separate function
+You can also extract this functionality into a separate function:
+
+12345678910
+function Example3() {
+
+    const getRandomNum = () => Math.floor(Math.random() * 10) + 1
+
+    return (
+        <div className="heading">
+            <h1>Here's a random number from 0 to 10: { getRandomNum() }</h1>
+        </div>
+    );
+};
+<h1> The getRandomNum() function can also be written as a function declaration, or as a function expression. It does not have to be an arrow function.</h2>
+
+But let’s observe both alternatives: the function expression and the function declaration.
+
+
+Expressions as props
+You've already learned a bit about using expressions as props. These can be, among other things, ternary operators, function calls, or some arithmetic operations.
+
+However, you can pass almost any kind of expression as a prop.
+
+For example:
+const bool = false; 
+
+function Example(props) {
+    return (
+        <h2>The value of the toggleBoolean prop is: {props.toggleBoolean.toString()}</h2>
+    );
+};
+
+export default function App() { 
+    return ( 
+        <div className="App"> 
+            <Example toggleBoolean={!bool} /> 
+        </div> 
+    ); 
+};
