@@ -1,28 +1,15 @@
-import Header from "./components/Header";
-import Bag from "./components/Bags";
-import Apples from "./components/Apple";
-import Pears from "./components/Pears";
-import logoss from "./logo.svg";
+import "./App.css";
+import Card from "./components/Card";
 
-function Logo (props){
-
-     const logoImg= <img src={logoss} ></img>
-     return logoImg
-}
 function App() {
-  return (
-//     <div className="App">
-//       <Header firstName="Bob" />
-//       <Header firstName="Any name other than Bob" />
-//     </div>
-
-    // <Bag>
-    //     <Apples color="yellow" number="5" />
-    //     <Pears friend="Peter" />
-    // </Bag>
-    <Logo />
-  );
-}
-
+    return (
+        <div className="App">
+            <h1>Task: Add three Card elements</h1>
+            <Card h2="First card's h2" h3="First card's h3" />
+            <Card h2="Second card's h2" h3="Second card's h3" />
+            <Card h2="Third card's h2" h3="Third card's h3" />
+        </div>
+    );
+};
 
 export default App;
